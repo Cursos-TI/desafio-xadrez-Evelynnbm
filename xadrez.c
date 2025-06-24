@@ -1,5 +1,26 @@
 #include <stdio.h>
 
+void moverCavalo(movimentos) {
+    
+    printf("Movimentação do cavalo\n");
+
+    for (int i = 0; i < movimentos; i++) {
+        for (int j = 0; j < 3; j++) { // loop para cada direção
+            if (j == 2) continue;     // pula a terceira tentativa
+            if (i + j > 2) break;     // força sair se exceder movimento em L
+            if (j == 0) {
+                printf("Cima ");
+                printf("Cima ");
+            } else if (j == 1) {
+                printf("Direita");
+                printf("\n");
+            }
+        }
+        
+    }
+}
+
+
 // Função recursiva para movimentação da Rainha
 void moverRainha(int atual, int total) {
     if (atual >= total) return;
@@ -45,16 +66,8 @@ int main() {
     moverBispo(movimentoTotal, 0);
 
     // Movimentação do Cavalo
-    printf("\nMovimentação do cavalo\n");
     movimentoTotal = 2;
-    for (int i = 1; i <= movimentoTotal; i++) {
-        int movimentoAtual = 1;
-        while (movimentoAtual <= 2) {
-            printf("cima ");
-            movimentoAtual++;
-        }
-        printf("direita\n");
-    }
+    moverCavalo(movimentoTotal);
 
     return 0;
 }
